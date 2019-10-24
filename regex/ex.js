@@ -10,9 +10,8 @@ inside until it tears u apart
 but the power of a smile
 especially yours can heal a frozen heart`;
 
-var re = /(?<=power of )(?<noun>(a )?\w+).*?can (?<verb>\w+)/gs;
-
 function *powers(poem) {
+  var re = /(?<=power of )(?<noun>(a )?\w+).*?can (?<verb>\w+)/gs;
   var match;
   while (match = re.exec(poem)) {
     yield `${match.groups.noun}: ${match.groups.verb}`;
