@@ -1,7 +1,7 @@
 function upper(strings, ...values) {
   str = strings[0];
   for (let i = 0; i < values.length; i++) {
-    str += values[i].toUpperCase();
+    str += String(values[i]).toUpperCase();
     str += strings[i + 1];
   }
   return str;
