@@ -5,10 +5,7 @@ function getFile(file) {
 }
 
 async function loadFiles(files) {
-	let responses = await Promise.all(
-		files.map(filename => getFile(filename))
-	);
-
+	let responses = await Promise.all(files.map(getFile));
 	console.log(responses);
 }
 
