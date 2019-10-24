@@ -5,9 +5,11 @@ function getFile(file) {
 }
 
 async function loadFiles(files) {
-	// request all files concurrently
+	let responses = await Promise.all(
+		files.map(filename => getFile(filename))
+	);
 
-	// print in order, sequentially
+	console.log(responses);
 }
 
 loadFiles(["file1","file2","file3"]);
@@ -22,7 +24,7 @@ function fakeAjax(url,cb) {
 		"file2": "The middle text",
 		"file3": "The last text"
 	};
-	var randomDelay = (Math.round(Math.random() * 1E4) % 8000) + 1000;
+	var randomDelay = (Math.round(Math.random() * 1e3) % 3000) + 1000;
 
 	console.log("Requesting: " + url);
 
