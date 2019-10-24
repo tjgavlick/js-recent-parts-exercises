@@ -10,6 +10,15 @@ inside until it tears u apart
 but the power of a smile
 especially yours can heal a frozen heart`;
 
+var re = /(?<=power of )(?<noun>(a )?\w+).*?can (?<verb>\w+)/gs;
+
+function *powers(poem) {
+  var match;
+  while (match = re.exec(poem)) {
+    yield `${match.groups.noun}: ${match.groups.verb}`;
+  }
+}
+
 for (let power of powers(poem)) {
 	console.log(power);
 }
@@ -19,13 +28,3 @@ for (let power of powers(poem)) {
 // a mind: learn
 // anger: rage
 // smile: heal
-
-
-// Hints:
-//
-// function *powers(poem) { .. }
-//
-// re = / .. /gs
-//
-// while (match = re.exec(poem)) { .. }
-//
